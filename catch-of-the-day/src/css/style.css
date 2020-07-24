@@ -651,6 +651,7 @@ ul.fishes {
   width: 220px;
   height: 280px;
   margin-bottom: 24px;
+  object-fit: cover;
 }
 .menu-fish button.addTo {
   width: 150px;
