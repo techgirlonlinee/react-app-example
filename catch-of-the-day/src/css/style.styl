@@ -1,104 +1,68 @@
 // Import all partials
 @require './_*.styl'
 
+p
+  margin-block-start 0
+  margin-block-end 0
 
-header.top
-  text-align center
-  h1
-    font-size 14.4rem
-    line-height 0.7 // this font has a wacky baseline
+header.heading 
+  position fixed
+  display flex
+  flex-direction row
+  width 91vw
+  justify-content space-between
+  a.logo
+    // font-size 4rem
+    margin-left 17px
+    // font-size: 100px;
+    font-size 7rem
+    letter-spacing -5px
+  .more 
     display flex
-    justify-content: center;
-
-    // This is a bunch of goofy CSS to make the logo look decent
-    .ofThe
+    flex-direction column
+    width 420px
+    text-align left
+    margin-top 20px
+    .description
+      font-size 1.125rem
+      margin-top 0
+      width 440px
+      text-align left
+      margin-bottom 0
+    a.filters 
+      width 100px
+      height 20px
+      border-radius 5px
+      margin-top 1rem
       display flex
-      font-size 3rem
-      color orange
-      justify-content: center;
-      align-items: center;
-      background url('images/anchor.svg') center no-repeat;
-      background-size cover
-      padding 0 1rem
-      .of
-        padding-right 2rem
-        position relative
-        right -0.5rem
-  h3
-    margin 0
-    font-size 2rem
-    color orange
-    position relative
-    display inline-block
-    span
-      background white
-      position relative
-      z-index 2
-      padding-left 1rem
-      padding-right 1rem
-    &:before, &:after
-      display block
-      z-index 1
-      background black
+      border 1px solid black
+      font-size 0.75 rem
       position absolute
-      width 130%
-      height 1px
-      content ''
-      top 5px
-      margin-left -15%
-    &:after
-      top auto
-      bottom 7px
-
+      top 68px
+      right -7px
+      p
+        padding-left 5px
+        margin-top 2px
+      img 
+        margin-left 10px
 
 .catch-of-the-day
   display flex
-  height 90vh
+  // display grid
+  height 100vh
   max-width:1500px
   margin 0 auto
-  margin-top 5vh
-  perspective: 1000px;
-  transform-style preserve-3d
-  & > *
-    flex 1 4 auto
-    padding 2rem
-    border 1rem double lighten(black,10%)
-    position relative
-    background white
-    transition all 0.3s
-    box-shadow 0 5px 5px rgba(0,0,0,0.1)
-    overflow scroll
-    &:first-child
-      flex-shrink 1 // take 4x the extra room
-      flex-basis 50%
-      transform translateX(50%) rotateY(6deg) translateX(-50%)
-    &:nth-child(2)
-      transform translateX(-50%) rotateY(-14deg) translateX(50%)
-      border-left 0
-      border-right 0
-      min-width 300px
-    &:last-child
-      flex-shrink 1 // take 4x the extra room
-      flex-basis 50%
-      transform translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px)
+  margin-top 0
+    
 
 // Folding Transforms
 // Take off folding when not checked
 input#fold:not(:checked) ~ #main
   .catch-of-the-day > *
-      transform none
+    transform none
 
 label[for="fold"]
-  position absolute
-  top 1rem
-  left 1rem
-  text-transform uppercase
-  font-size 1.3rem
-  background black
-  color white
-  border 2px solid black
-  cursor pointer
-  padding 0.5rem 1rem
+  display none
 
 input#fold
   display none
@@ -113,20 +77,30 @@ ul
 
 ul.order
   // Default state
+  margin-top: -20px;
   li
-    border-bottom 1px solid black
-    padding 2rem 0
+    border-bottom 1px solid #c2d880
+    padding 1.75rem 0
     display flex
-    font-size 1.4rem
-    justify-content space-between
-    align-items center
+    font-size 1.12rem
+    flex-direction column
+    margin 0 24px
+    .cart-name
+      display flex
+      justify-content space-between
+      font-weight 500
+    .selected-size
+      font-size 0.75rem
+      margin 6px 0
+    .value-discard
+      display flex
+      justify-content space-between
     &:hover
-      // padding 1rem 0
       button
         display inline
     button
       border 0
-      display none
+      // display none
       line-height 1
       padding 0
     &.unavailable
@@ -141,47 +115,127 @@ ul.order
       span
         display inline-block
         // transition all 0.5s
+    .close-button img
+      opacity 1
 .total
   padding 2rem 0
+  font-family "Everett"
   font-size 1.4rem
-  border-bottom 3px solid black
-  border-top 3px double black
+  margin 0 24px
   & strong
     float: right
 
-.order-title
+h2.order-title
   text-align center
+  margin-top 20px
 
 .fish-edit
-  margin-bottom 20px
-  border 2px solid black
+  position relative
+  border 1px solid black
   overflow hidden
   display flex
   flex-wrap wrap
+  width 250px
+  height 250px
+  margin 0 24px 20px 29px
+  background-color #FFFEFA
+  select
+    display none
   input, textarea, select
-    width 33.33%
+    width 100%
     padding 10px
     line-height 1
     font-size 1.2rem
     border 0
-    border-bottom 1px solid black
-    border-right 1px solid black
     appearance none
     border-radius 0
     background white
     &:focus
       outline 0
       background lighten(orange, 85%)
+  input
+    font-size 1.25rem
+    font-weight 500
   textarea
-    width 100%
+    width 88.5%
+    font-size 0.875rem
+    margin-top -18px
+    padding-bottom 0
+    resize none
   input:last-of-type
     width 100%
-  button
+  .price-text
+    // margin-top -26px
+    z-index 2
+    padding 0
+    margin 0 0 0 10px;
+  input.creator-name
+    width 80%
+    padding 0
+    margin 0
+    // margin-top -15px
+    margin-left 10px
+    z-index 3
+    font-size 0.75rem
+    font-weight 300
+  button.remove-fish, .addFish-button
     width 100%
-    border 0
-
+    border none
+    border-top 1px solid black
+    border-radius 0
+    position absolute
+    right -111px
+    top 108px
+    transform rotate(-90deg)
+    width 250px
+    font-size 1.125rem
+    font-weight 500
+    text-align end
+    padding-right 13px
+    padding-top 5px
+    padding-bottom 4px
+    &:hover
+      background-color black
+      color white
+  .image-text
+    font-size 0.875rem
+  .sizing
+    .row
+      display flex
+      justify-content space-between
+      width 86%
+      height 20px
+      margin 5px
+      margin-left 10px
+      .labels, .field
+        display flex
+        justify-content start
+        margin-left 2px
+        width 50%
+      .labels
+        span
+          opacity 0.4
+          font-weight 500
+          margin-right 5px
+          padding 0 4px
+          &.active
+            opacity 1
+            border 1px solid black
+            border-radius 50%
+      .field
+        input.quantity
+          border-bottom 1px solid black
+          width 50%
 
 // Menu Styles
+.overlay 
+  position fixed
+  top 0px
+  left 0px
+  width 100vw
+  height 200px
+  background linear-gradient(#D2fe51, transparent 80%)
+
 .list-of-fish
   border-top 2px solid black
   border-bottom 1px solid black
@@ -189,68 +243,135 @@ ul.order
   margin-top 2rem
   transform translateZ(0);
 
+ul.fishes 
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  max-width 1084px
+  margin auto
+  margin-top 120px
+
 .menu-fish
-  border-bottom 2px solid black
-  border-top 1px solid black
   padding-bottom 2rem
   padding-top 2rem
   margin-bottom 5px
   clear both
   overflow hidden
-  p
+  display flex
+  flex-direction column
+  width 220px
+  margin 24px
+  p.fish-desc
     margin 0
-    font-size 1.8rem
+    font-size 0.85rem
+    font-weight 400
+    height 32px
+  textarea
+    resize none
+  .creator-name
+    font-weight 300
+    font-size 0.75rem
+    margin-top 6px
   .fish-name
     margin 0
     display flex
     justify-content space-between
     align-items center
-  .price
-    font-size 1.4rem
-    // color orange
-    justify-content flex-end
-    // font-family 'Open Sans Condensed'
+    margin-bottom 6px
+    font-size 1.5rem
+  div.number-details
+    display flex
+    justify-content space-between
+    align-items center
+    margin-top 7px
+    .price
+      font-size 1.5rem
+      justify-content flex-end
+      margin-top 12px
+    .sizes
+      display flex
+      justify-content space-between
+      .field_group
+        position relative
+        margin-right 10px
+        margin-top 10px
+        label, .labels
+          font-size 0.875rem
+          font-weight 500
+          position relative
+          z-index 2
+          &.active
+            margin-right -5px
+            // font-weight bold
+            border 1px solid black
+            border-radius 50%
+            padding 1px 4px 0px 4px
+          .medium .active
+            margin-left 1px
+            padding 1px 3px 0px 2px
+        input
+          opacity 0
+          position absolute
+          // left 0
+          // top 0
+          z-index 1
+          left -6px
+          top -1px
+          z-index 1
+          width 23px
+          height 20px
+        #medium
+          left -3px
+
   img
-    float left
+    width 220px
+    height 280px
+    margin-bottom 24px
+  button.addTo 
     width 150px
-    margin-right 1rem
+    height 44px
+    text-align center
+    margin auto
+    margin-top 10px
+    border-radius 80%
+    font-size 0.85rem
+    font-family "Everett"
+    font-weight 500
+    &:hover 
+      color white
+      background-color black
 
 button, input[type=submit]
   text-transform uppercase
   background none
   border 1px solid black
   font-weight 600
-  font-size 1.5rem
-  font-family 'Open Sans', sans-serif
+  font-size 0.85rem
+  font-family "Everett", sans-serif
   transition all 0.2s
   position relative
   z-index 2
+  border-radius 80%
   &[disabled]
-    color red
-    background white
-    border-color red
-    transform rotate(-10deg) scale(2) translateX(50%) translateY(-50%)
+    display none
+    .menu-fish
+      opacity 0.4
+    // color red
+    // background white
+    // border-color red
+    // transform rotate(-10deg) scale(2) translateX(50%) translateY(-50%)
     &:hover
-      color red
+      // color red
       cursor not-allowed
     &:after
       display none
-  &:after
-    content ''
-    z-index -1
-    display block
-    background black
-    position absolute
-    width 100%
-    height 0
-    left 0
-    top 0
-    transition all 0.2s
   &:hover, &:focus
-    color white
+    color black
     outline 0
+    border-radius 80%
     &:after
       height 100%
+      border-radius 80%
   // variants
   &.warning
     &:after
@@ -259,29 +380,14 @@ button, input[type=submit]
     &:after
       background green
 
-  &.github, &.facebook, &.twitter
-    border 0
-    display block
-    margin-bottom 2rem
-    width 100%
-    color white
-    padding 2rem
-
   &.github
-    background #82D465
-    &:after
-      background darken(#82D465, 20%)
-
-  &.facebook
-    background #3864A3
-    &:after
-      background darken(#3864A3, 20%)
-
-  &.twitter
-    background #5EA9DD
-    &:after
-      background darken(#5EA9DD, 20%)
-
+    color black
+    background grey
+    padding 10px 30px
+    font-weight 500
+    &:hover
+      background black
+      color white
 
 // Store Selector
 .store-selector
@@ -295,3 +401,209 @@ button, input[type=submit]
     &[type="text"]
       text-align center
       font-size 3rem
+
+.container
+  .drawer
+    position relative
+    overflow visible
+    z-index 2
+    .tab
+      display flex
+      position absolute
+      justify-content center
+      // align-items center
+      align-items end
+      width 78px
+      background-color grey
+      height 50vh
+      border-radius 0
+      // border none
+      //display block
+      left 0
+      span.drawer-title
+        display flex
+        transform rotate(-90deg) 
+        font-size 3.375rem
+        font-weight 500
+        margin-top 81px
+        .items-amount
+          display inline-block
+          width 30px
+          height 30px
+          border-radius 50%
+          background-color black
+          color white
+          position relative
+          margin-top 11px
+          margin-left 10px
+          .num
+            display block
+            position absolute
+            left 50%
+            top 50%
+            font-size 15px
+            text-align center
+            transform rotate(90deg) translate(-9px, 6px)
+      span.title-vendor
+        margin-top 104px
+      &:hover
+        background-color #DBFD77
+        color black
+      &:visited
+        background-color #DBFD77
+        color black
+        // &:after
+        // background-color grey
+      &.cart
+        top 0
+        border 1px solid black
+        
+
+      &.vendor
+        bottom 0
+        // background-color grey
+        border-top none
+    .cart-drawer
+      background-color green
+        
+    .vendor-drawer
+      background-color purple
+
+    .sub-drawer
+      padding-left 78px
+      position absolute
+      overflow-y scroll
+      overflow-x visible
+      height 100%
+      width 100%
+      top 0
+      left 0
+      border 1px solid black
+       
+
+.container.default
+  .drawer
+      background-color #DBFD77
+      width 6vw
+      .order-wrap, .inventory
+        display none
+  .menu
+    width 94vw
+
+
+.container.cart, .container.vendor
+  overflow-y hidden
+  .menu
+    width 70vw
+    overflow-y auto
+  ul.fishes
+    max-width 804px
+  header.heading
+    width 80vw
+    .description
+      font-size 1rem
+      width 268px
+    a.filters
+      margin-top 0.4rem
+      position absolute
+      right 158px
+      top 5rem
+  .subdrawer
+    border: 1px solid black;
+  
+
+.container.cart
+  .drawer
+    background-color #DBFD77
+    position relative
+    top 0
+    right 0
+    height 100vh
+    width 30vw
+    color black
+    .tab
+      &.cart
+        background-color #DBFD77
+        border 1px solid black
+        border-right none
+        color black
+    .sub-drawer
+      position relative
+      color black
+      // span.drawer-title
+      //   display block
+      //   transform rotate(-90deg) 
+      
+
+.container.vendor
+  background-color #DBFD77
+  .drawer
+    background-color #DBFD77
+    width 30vw
+    .tab
+      &.vendor
+        background-color #DBFD77
+        border 1px solid black
+        border-top none
+        border-right none
+        color black
+    .cart-drawer
+      .close-button img 
+        opacity 0
+    .vendor-drawer
+      background-color #DBFD77
+      
+      .inventory
+        h2
+          margin-top 20px
+        .allEditingFishes
+          margin-top -10px
+
+        .loadfish-button
+          text-align center
+          display flex
+          padding 13px 24px
+          vertical-align middle
+          margin-left 16%
+          margin-bottom 20px
+  .logout-button
+    position absolute
+    top 14px
+    right 14px
+    font-size 0.75rem
+    font-weight 500
+    border none
+    border-radius 0
+    text-decoration underline
+
+.menu
+  background-color grey
+  // overflow scroll
+  position relative
+  z-index 1
+  overflow-y auto
+
+.login
+  position absolute
+  bottom 29.5%
+  text-align center
+  display flex
+  width 79%
+  flex-direction column
+  justify-content center
+  margin auto
+  p
+    font-size 1.125rem
+    font-weight 500
+    text-transform uppercase
+  .github
+    width 150px
+    margin auto
+    margin-top 20px
+  a
+    font-size 0.75rem
+    font-weight 500
+    text-transform uppercase
+    margin-top 20px
+    &:hover
+      opacity 0.4

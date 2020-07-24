@@ -20,12 +20,26 @@ class EditFishForm extends React.Component {
     return (
       <div className="fish-edit">
         <input
+          className="name-text"
           type="text"
           name="name"
           onChange={this.handleChange}
           value={this.props.fish.name}
         />
+        <textarea
+          name="desc"
+          onChange={this.handleChange}
+          value={this.props.fish.desc}
+        ></textarea>
         <input
+          className="creator-name"
+          type="text"
+          name="creator"
+          onChange={this.handleChange}
+          value={this.props.fish.creator}
+        />
+        <input
+          className="price-text"
           type="text"
           name="price"
           onChange={this.handleChange}
@@ -39,20 +53,76 @@ class EditFishForm extends React.Component {
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-        <textarea
-          name="desc"
-          onChange={this.handleChange}
-          value={this.props.fish.desc}
-        ></textarea>
+
+        <div className="sizing">
+          <div className="row">
+            <div className="labels">
+              <span className="active">S</span>
+              <span>M</span>
+              <span>L</span>
+            </div>
+            <div className="field">
+              <label>QTY:</label>
+              <input
+                type="number"
+                name="small_qty"
+                className="quantity"
+                onChange={this.handleChange}
+                value={this.props.fish.small_qty}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="labels">
+              <span>S</span>
+              <span className="active">M</span>
+              <span>L</span>
+            </div>
+            <div className="field">
+              <label>QTY:</label>
+              <input
+                type="number"
+                name="med_qty"
+                className="quantity"
+                value={this.props.fish.med_qty}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="labels">
+              <span>S</span>
+              <span>M</span>
+              <span className="active">L</span>
+            </div>
+            <div className="field">
+              <label>QTY:</label>
+              <input
+                type="number"
+                name="large_qty"
+                className="quantity"
+                value={this.props.fish.large_qty}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+        </div>
+
         <input
+          className="image-text"
           type="text"
           name="image"
           onChange={this.handleChange}
           value={this.props.fish.image}
         />
 
-        <button onClick={() => this.props.deleteFish(this.props.index)}>
-          Remove Fish
+        <button
+          className="remove-fish"
+          onClick={() => this.props.deleteFish(this.props.index)}
+        >
+          Remove
         </button>
       </div>
     );

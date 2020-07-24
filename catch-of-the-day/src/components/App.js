@@ -12,6 +12,7 @@ class App extends React.Component {
   state = {
     fishes: {},
     order: {},
+    layout: "default",
   };
 
   // lIFE CYLCLE OF COMPONENT
@@ -32,6 +33,14 @@ class App extends React.Component {
       state: "fishes",
     });
   }
+
+  switchLayout = (layout) => {
+    if (layout === this.state.layout) {
+      this.setState({ layout: "default" });
+    } else {
+      this.setState({ layout: layout });
+    }
+  };
 
   componentDidUpdate() {
     localStorage.setItem(
@@ -84,11 +93,14 @@ class App extends React.Component {
     this.setState({ fishes });
   };
 
-  addToOrder = (key) => {
+  addToOrder = (key, size) => {
     // 1. take a copy of state
     const order = { ...this.state.order };
     // 2. either add to the order, or update the number in our order
-    order[key] = order[key] + 1 || 1;
+    console.log("ORDER KEY", order[key]);
+    order[key] = order[key]
+      ? { count: order[key].count + 1, size: size }
+      : { count: 1, size: size };
     // 3. call setState to update our state object with the order
     this.setState({ order });
   };
@@ -105,9 +117,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="catch-of-the-day">
+      <div className={"catch-of-the-day container " + this.state.layout}>
         <div className="menu">
-          <Header tagline="Fresh Seafood Market" />
+          {/* <Header tagline="Fresh Seafood Market" /> */}
+          <div className="overlay"></div>
+          <header className="heading">
+            <a className="logo">GoodHood</a>
+            <div className="more">
+              <h2 className="description">
+                Graphic design hoodies produced by local artists and designers
+                gathered into one platform
+              </h2>
+              <a className="filters">
+                <p>PRICE (LOW)</p>
+                <img src="../../sorting-arrow.svg" />
+              </a>
+            </div>
+          </header>
           <ul className="fishes">
             {/* Get the fishes object (state we defined on top), loop over it using MAP and find the key for each one*/}
             {Object.keys(this.state.fishes).map((key) => (
@@ -122,19 +148,43 @@ class App extends React.Component {
           </ul>
         </div>
         {/* Passing all the fish in the state and the orders within the state */}
-        <Order
-          fishes={this.state.fishes}
-          order={this.state.order}
-          removeFromOrder={this.removeFromOrder}
-        />
-        <Inventory
-          addFish={this.addFish}
-          updateFish={this.updateFish}
-          deleteFish={this.deleteFish}
-          loadSampleFishes={this.loadSampleFishes}
-          fish={this.state.fishes}
-          storeId={this.props.match.params.storeId}
-        />
+
+        <div className="drawer">
+          <button
+            onClick={() => this.switchLayout("cart")}
+            className="tab cart"
+          >
+            <span className="drawer-title title-cart">
+              <span>Cart</span>
+              <span className="items-amount">
+                <span className="num">0</span>
+              </span>
+            </span>
+          </button>
+          <button
+            onClick={() => this.switchLayout("vendor")}
+            className="tab vendor"
+          >
+            <span className="drawer-title title-vendor">Vendor</span>
+          </button>
+          <div className="cart-drawer sub-drawer">
+            <Order
+              fishes={this.state.fishes}
+              order={this.state.order}
+              removeFromOrder={this.removeFromOrder}
+            />
+          </div>
+          <div className="vendor-drawer sub-drawer">
+            <Inventory
+              addFish={this.addFish}
+              updateFish={this.updateFish}
+              deleteFish={this.deleteFish}
+              loadSampleFishes={this.loadSampleFishes}
+              fish={this.state.fishes}
+              storeId={this.props.match.params.storeId}
+            />
+          </div>
+        </div>
       </div>
     );
   }

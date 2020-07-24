@@ -18,6 +18,7 @@ class AddFishForm extends React.Component {
   nameRef = React.createRef();
   priceRef = React.createRef();
   statusRef = React.createRef();
+  creatorRef = React.createRef();
   descRef = React.createRef();
   imageRef = React.createRef();
 
@@ -32,6 +33,7 @@ class AddFishForm extends React.Component {
       name: this.nameRef.current.value,
       price: parseFloat(this.priceRef.current.value),
       status: this.statusRef.current.value,
+      creator: this.creatorRef.current.value,
       desc: this.descRef.current.value,
       image: this.imageRef.current.value,
     };
@@ -61,6 +63,12 @@ class AddFishForm extends React.Component {
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
+        <input
+          name="name"
+          type="text"
+          placeholder="Designer"
+          ref={this.creatorRef}
+        />
         <textarea
           name="desc"
           type="text"
@@ -74,7 +82,9 @@ class AddFishForm extends React.Component {
           ref={this.imageRef}
         />
 
-        <button type="submit">+ Add Fish</button>
+        <button className="addFish-button" type="submit">
+          + Add Fish
+        </button>
       </form>
     );
   }

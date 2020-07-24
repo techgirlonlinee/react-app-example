@@ -44,12 +44,16 @@ class Inventory extends React.Component {
 
   logout = async () => {
     console.log("logged out!");
-    await firebase.auth().signOut;
+    await firebase.auth().signOut();
     this.setState({ uid: null });
   };
 
   render() {
-    const logout = <button onClick={this.logout}>Log Out</button>;
+    const logout = (
+      <button className="logout-button" onClick={this.logout}>
+        Log Out
+      </button>
+    );
 
     // 1. check if they are logged in
     if (!this.state.uid) {
@@ -73,19 +77,24 @@ class Inventory extends React.Component {
         <h2>Inventory</h2>
         {logout}
         {/* do the loop to see how many fish we have */}
-        {Object.keys(this.props.fish).map((key) => (
-          <EditFishForm
-            key={key}
-            fish={this.props.fish[key]}
-            index={key}
-            updateFish={this.props.updateFish}
-            deleteFish={this.props.deleteFish}
-          />
-        ))}
 
+        <div className="allEditingFishes">
+          {Object.keys(this.props.fish).map((key) => (
+            <EditFishForm
+              key={key}
+              fish={this.props.fish[key]}
+              index={key}
+              updateFish={this.props.updateFish}
+              deleteFish={this.props.deleteFish}
+            />
+          ))}
+        </div>
         <AddFishForm addFish={this.props.addFish} />
 
-        <button onClick={this.props.loadSampleFishes}>
+        <button
+          className="loadfish-button"
+          onClick={this.props.loadSampleFishes}
+        >
           Load Sample Fishes
         </button>
       </div>

@@ -1,84 +1,86 @@
 // This is just some sample data so you don't have to think of your own!
 const fishes = {
   fish1: {
-    name: "Pacific Halibut",
+    name: "GAY VILLAIN!",
     image: "/images/hali.jpg",
-    desc:
-      "Everyone’s favorite white fish. We will cut it to the size you need and ship it.",
-    price: 1724,
-    status: "available"
+    desc: "All Proceeds Go To the National Black trans Advocacy Coalition",
+    price: 6000,
+    creator: "JORDAN PARVEX",
+    status: "available",
   },
 
   fish2: {
-    name: "Lobster",
+    name: "DON'T SWEAT",
     image: "/images/lobster.jpg",
-    desc:
-      "These tender, mouth-watering beauties are a fantastic hit at any dinner party.",
-    price: 3200,
-    status: "available"
+    desc: "Don't sweat it. Don't. Damn it!",
+    price: 6000,
+    creator: "MIRUNA A.",
+    status: "available",
   },
 
   fish3: {
-    name: "Sea Scallops",
+    name: "PALAWAN HOT",
     image: "/images/scallops.jpg",
-    desc:
-      "Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound",
-    price: 1684,
-    status: "unavailable"
+    desc: "Limited edition from illustrator and motion graphic artist",
+    price: 4000,
+    creator: "VALENTIN LAŽAR",
+    status: "unavailable",
   },
 
   fish4: {
-    name: "Mahi Mahi",
+    name: "BEAUTIFUL LIFE",
     image: "/images/mahi.jpg",
-    desc:
-      "Lean flesh with a mild, sweet flavor profile, moderately firm texture and large, moist flakes. ",
-    price: 1129,
-    status: "available"
+    desc: "There is still so much in the world worth fighting for",
+    price: 5500,
+    creator: "JAMIE TALLERICO",
+    status: "available",
   },
 
   fish5: {
-    name: "King Crab",
+    name: "QUARANTINE 2020",
     image: "/images/crab.jpg",
-    desc:
-      "Crack these open and enjoy them plain or with one of our cocktail sauces",
-    price: 4234,
-    status: "available"
+    desc: "Quarantine 2020 World Tour. Stay at home. Save lives.",
+    price: 5000,
+    creator: "KING SMITH",
+    status: "available",
   },
 
   fish6: {
-    name: "Atlantic Salmon",
+    name: "ALLERGIC CLUB",
     image: "/images/salmon.jpg",
-    desc:
-      "This flaky, oily salmon is truly the king of the sea. Bake it, grill it, broil it...as good as it gets!",
-    price: 1453,
-    status: "available"
+    desc: "What Doesn't Kill You Makes You Feel Worse",
+    price: 4500,
+    creator: "MATOUŠ MARTÁK",
+    status: "available",
   },
 
   fish7: {
-    name: "Oysters",
+    name: "DISPOSABLES",
     image: "/images/oysters.jpg",
-    desc: "A soft plump oyster with a sweet salty flavor and a clean finish.",
-    price: 2543,
-    status: "available"
+    desc: "For all my analog photographers",
+    price: 4000,
+    creator: "ALEXANDRA MOCANU",
+    status: "available",
   },
 
   fish8: {
-    name: "Mussels",
+    name: "A BETTER WORLD",
     image: "/images/mussels.jpg",
     desc:
-      "The best mussels from the Pacific Northwest with a full-flavored and complex taste.",
-    price: 425,
-    status: "available"
+      "It is possible, and yes, there will be vultures in the speculative future",
+    price: 4250,
+    creator: "CREATIVE CONCEPTS",
+    status: "available",
   },
 
   fish9: {
-    name: "Jumbo Prawns",
+    name: "SOLITUDE",
     image: "/images/prawns.jpg",
-    desc:
-      "With 21-25 two bite prawns in each pound, these sweet morsels are perfect for shish-kabobs.",
-    price: 2250,
-    status: "available"
-  }
+    desc: "You're not your thoughts",
+    price: 4250,
+    creator: "JAWHEL",
+    status: "available",
+  },
 };
 
 export default fishes;

@@ -3,7 +3,6 @@ import { formatPrice } from "../helpers";
 class Order extends React.Component {
   renderOrder = (key) => {
     const fish = this.props.fishes[key];
-    const count = this.props.order[key];
     const isAvailable = fish && fish.status === "available";
 
     if (!fish) return null;
@@ -15,10 +14,30 @@ class Order extends React.Component {
         </li>
       );
     }
+
+    const count = parseFloat(this.props.order[key].count);
+    const size = this.props.order[key].size;
+
+    console.log("numbers", count, fish.price);
+
     return (
       <li key={key}>
-        {count} lbs {fish.name} {formatPrice(count * fish.price)}
-        <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+        <div className="cart-name">
+          <p className="order-fishname">{fish.name}</p>
+          <p className="order-fishprice">{formatPrice(count * fish.price)}</p>
+        </div>
+        <div className="selected-size">
+          Size: <span>{size}</span>
+        </div>
+        <div className="value-discard">
+          <div className="add-item">Add/subtract item</div>
+          <button
+            className="close-button"
+            onClick={() => this.props.removeFromOrder(key)}
+          >
+            <img src="../../close-button.svg" />
+          </button>
+        </div>
       </li>
     );
   };
@@ -26,7 +45,7 @@ class Order extends React.Component {
     const orderIds = Object.keys(this.props.order);
     const total = orderIds.reduce((prevTotal, key) => {
       const fish = this.props.fishes[key];
-      const count = this.props.order[key];
+      const count = this.props.order[key].count;
       const isAvailable = fish && fish.status === "available";
       if (isAvailable) {
         return prevTotal + count * fish.price;
@@ -35,10 +54,10 @@ class Order extends React.Component {
     }, 0);
     return (
       <div className="order-wrap">
-        <h2>Order</h2>
+        <h2 className="order-title">Order</h2>
         <ul className="order">{orderIds.map(this.renderOrder)}</ul>
         <div className="total">
-          Total:
+          SUBTOTAL
           <strong>{formatPrice(total)}</strong>
         </div>
       </div>
