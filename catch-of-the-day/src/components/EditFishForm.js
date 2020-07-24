@@ -58,7 +58,7 @@ class EditFishForm extends React.Component {
           <div className="row">
             <div className="labels">
               <span className="active">S</span>
-              <span>M</span>
+              <span className="m-active">M</span>
               <span>L</span>
             </div>
             <div className="field">
@@ -75,8 +75,8 @@ class EditFishForm extends React.Component {
 
           <div className="row">
             <div className="labels">
-              <span>S</span>
-              <span className="active">M</span>
+              <span className="s-size">S</span>
+              <span className="active m-active">M</span>
               <span>L</span>
             </div>
             <div className="field">
@@ -95,7 +95,7 @@ class EditFishForm extends React.Component {
             <div className="labels">
               <span>S</span>
               <span>M</span>
-              <span className="active">L</span>
+              <span className="active l-active">L</span>
             </div>
             <div className="field">
               <label>QTY:</label>

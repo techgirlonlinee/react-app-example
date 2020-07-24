@@ -52,7 +52,7 @@ class Fish extends React.Component {
                   }
                   htmlFor={this.props.index + "_small"}
                 >
-                  S
+                  <span>S</span>
                 </label>
                 <input
                   type="radio"
@@ -74,7 +74,7 @@ class Fish extends React.Component {
                   }
                   htmlFor={this.props.index + "_medium"}
                 >
-                  M
+                  <span>M</span>
                 </label>
 
                 <input
@@ -97,7 +97,7 @@ class Fish extends React.Component {
                   }
                   htmlFor={this.props.index + "_large"}
                 >
-                  L
+                  <span>L</span>
                 </label>
                 <input
                   type="radio"

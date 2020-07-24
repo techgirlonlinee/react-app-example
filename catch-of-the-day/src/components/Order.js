@@ -35,7 +35,7 @@ class Order extends React.Component {
             className="close-button"
             onClick={() => this.props.removeFromOrder(key)}
           >
-            <img src="../../close-button.svg" />
+            <img src="/images/close-button.svg" />
           </button>
         </div>
       </li>

@@ -130,7 +130,7 @@ class App extends React.Component {
               </h2>
               <a className="filters">
                 <p>PRICE (LOW)</p>
-                <img src="../../sorting-arrow.svg" />
+                <img src="/images/sorting-arrow.svg" />
               </a>
             </div>
           </header>

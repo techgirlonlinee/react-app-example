@@ -191,7 +191,7 @@ h2.order-title
     font-size 1.125rem
     font-weight 500
     text-align end
-    padding-right 13px
+    padding-right 17px
     padding-top 5px
     padding-bottom 4px
     &:hover
@@ -222,6 +222,12 @@ h2.order-title
             opacity 1
             border 1px solid black
             border-radius 50%
+        .m-active
+          padding 0 2px
+        .l-active
+          padding 0 5px
+      .medium_label
+        font-weight bold
       .field
         input.quantity
           border-bottom 1px solid black
@@ -296,19 +302,30 @@ ul.fishes
         margin-right 10px
         margin-top 10px
         label, .labels
+          border 1px solid transparent
           font-size 0.875rem
           font-weight 500
           position relative
           z-index 2
+          cursor pointer
+          padding 1px 4px 0px 4px
+          display inline-block
+          height 20px
+          width 20px
+          margin-top 5px
+          span
+            position absolute
+            top 57%
+            left 51%
+            transform translate(-50%, -50%)
           &.active
-            margin-right -5px
+            //margin-right -5px
             // font-weight bold
             border 1px solid black
             border-radius 50%
             padding 1px 4px 0px 4px
-          .medium .active
-            margin-left 1px
-            padding 1px 3px 0px 2px
+        .large_label
+          //padding: 0px 4px;
         input
           opacity 0
           position absolute
@@ -434,7 +451,7 @@ button, input[type=submit]
           background-color black
           color white
           position relative
-          margin-top 11px
+          margin-top 15px
           margin-left 10px
           .num
             display block
@@ -464,10 +481,10 @@ button, input[type=submit]
         // background-color grey
         border-top none
     .cart-drawer
-      background-color green
+      background-color#DBFD77
         
     .vendor-drawer
-      background-color purple
+      background-color #DBFD77
 
     .sub-drawer
       padding-left 78px
